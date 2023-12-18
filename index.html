@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <title>Multi-step Form Modal</title>
+    <style>
+      /* Custom Styles */
+      .step-indicator {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100% !important;
+        gap: 10px;
+        overflow-x: auto;
+      }
+      .step {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        min-width: max-content;
+      }
+      .step.active {
+        color: red;
+      }
+      .step.complete {
+        color: green !important;
+      }
+      .form-step {
+        display: none;
+      }
+      .form-step.active {
+        display: block;
+      }
+      .required-field {
+        border: 1px solid red;
+      }
+      .required-label {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Button to trigger modal -->
+    <div
+      style="
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#multiStepModal"
+        style="width: fit-content"
+      >
+        Open Multi-step Form
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="multiStepModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="multiStepModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        style="max-width: min-content"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title w-100"
+              style="text-align: center !important"
+              id="multiStepModalLabel"
+            >
+              Host Application
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" style="color: black">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+              <div
+                class="step active"
+                data-step="1"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center !important;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />
+                Step 1
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="2"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 2
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="3"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 3
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="4"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 4
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="5"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 5
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="6"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 6
+              </div>
+              <div>
+                <i
+                  class="fas fa-angle-right"
+                  style="color: #252525"
+                  id="angleRightIcon"
+                ></i>
+              </div>
+
+              <div
+                class="step"
+                data-step="7"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <img
+                  src="assets/icons/Check.svg"
+                  alt=""
+                  style="
+                    background-color: #252525;
+                    border-radius: 100%;
+                    padding: 2px;
+                    width: 20px;
+                  "
+                />Step 7
+              </div>
+            </div>
+
+            <!-- Form Steps -->
+            <div class="form-step active" id="step1">
+              <!-- Your Step 1 Form Goes Here -->
+              <form id="formStep1" class="row">
+                <div class="col-12 col-lg-6" style="margin-bottom: 24px">
+                  <label for="inputFirstName" class="form-label"
+                    >First Name *
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder="Enter First Name"
+                    class="form-control"
+                    id="inputFirstName"
+                    name="fname"
+                  />
+                </div>
+
+                <div class="col-12 col-lg-6" style="margin-bottom: 24px">
+                  <label for="inputLastName" class="form-label"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter Last Name"
+                    class="form-control"
+                    id="inputLastName"
+                    name="lname"
+                  />
+                </div>
+                <div class="col-12 col-lg-6" style="margin-bottom: 24px">
+                  <label for="inputEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter Email"
+                    class="form-control"
+                    id="inputEmail"
+                    name="email"
+                  />
+                </div>
+                <div class="col-12 col-lg-6" style="margin-bottom: 24px">
+                  <label for="inputPhone" class="form-label">Phone</label>
+                  <input
+                    type="tel"
+                    placeholder="Enter Phone"
+                    class="form-control"
+                    id="inputPhone"
+                    name="phone"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="form-step" id="step2">
+              <!-- Your Step 2 Form Goes Here -->
+              <form id="formStep2" class="row">
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label for="inputStreet" class="form-label">Street</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Street"
+                    class="form-control"
+                    id="inputStreet"
+                    name="street"
+                  />
+                </div>
+                <div class="col-12 col-lg-4" style="margin-bottom: 24px">
+                  <label for="inputCity" class="form-label">City</label>
+                  <input
+                    type="text"
+                    placeholder="Enter City"
+                    class="form-control"
+                    id="inputCity"
+                    name="phone"
+                  />
+                </div>
+                <div class="col-12 col-lg-4" style="margin-bottom: 24px">
+                  <label for="inputState" class="form-label">State</label>
+                  <input
+                    type="text"
+                    placeholder="Enter State"
+                    class="form-control"
+                    id="inputState"
+                    name="phone"
+                  />
+                </div>
+                <div class="col-12 col-lg-4" style="margin-bottom: 24px">
+                  <label for="inputCountry" class="form-label">Country</label>
+                  <input
+                    type="text"
+                    placeholder="Enter Country"
+                    class="form-control"
+                    id="inputCountry"
+                    name="phone"
+                  />
+                </div>
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label for="inputAddress" class="form-label">Address *</label>
+                  <textarea
+                    required
+                    name="address"
+                    id="inputAddress"
+                    rows="4"
+                    class="form-control"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+
+            <div class="form-step" id="step3">
+              <!-- Your Step 3 Form Goes Here -->
+              <form id="formStep3" class="row">
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label for="inputCompanyName" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter Company Name"
+                    class="form-control"
+                    id="inputCompanyName"
+                    name="companyName"
+                  />
+                </div>
+
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label for="inputCompanyEmail" class="form-label"
+                    >Company Email</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter Company Email"
+                    class="form-control"
+                    id="inputCompanyEmail"
+                    name="companyEmail"
+                  />
+                </div>
+
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label for="inputCompanyAddress" class="form-label"
+                    >Company Address</label
+                  >
+                  <textarea
+                    name="companyAddress"
+                    id="inputCompanyAddress"
+                    rows="4"
+                    class="form-control"
+                  ></textarea>
+                </div>
+              </form>
+            </div>
+
+            <div class="form-step" id="step4">
+              <!-- Your Step 3 Form Goes Here -->
+              <form id="formStep4" class="row">
+                <div class="col-12" style="margin-bottom: 24px">
+                  <label class="form-label">Gender *</label>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="maleRadio"
+                      value="male"
+                      required
+                    />
+                    <label class="form-check-label" for="maleRadio">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gender"
+                      id="femaleRadio"
+                      value="female"
+                      required
+                    />
+                    <label class="form-check-label" for="femaleRadio"
+                      >Female</label
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- Repeat the above for each step -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="backBtn"
+              disabled
+            >
+              Back
+            </button>
+            <button type="button" class="btn btn-primary" id="actionBtn">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/6a838a785a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
